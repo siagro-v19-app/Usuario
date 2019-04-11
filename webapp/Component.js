@@ -18,10 +18,6 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function() {
-			// call the base component's init function
-			UIComponent.prototype.init.apply(this, arguments);
-
-			// set the device model
 			this._oErrorHandler = new ErrorHandler(this);
 			UIComponent.prototype.init.apply(this, arguments);
 
