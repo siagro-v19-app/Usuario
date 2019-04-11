@@ -6,44 +6,46 @@
 	xmlns:f="sap.ui.layout.form">
 	<App>
 		<pages>
-			<Page showNavButton="true"
-				navButtonPress="onVoltar">
+			<Page showHeader="false">
 				<content>
-					<VBox class="sapUiSmallMargin">	
-						<f:SimpleForm id="SimpleFormChange480_Trial"
-						editable="true"
-						layout="ResponsiveGridLayout"
-						title="{view>/titulo}"
-						labelSpanXL="4"
-						labelSpanL="4"
-						labelSpanM="4"
-						labelSpanS="12"
-						adjustLabelSpan="false"
-						emptySpanXL="0"
-						emptySpanL="0"
-						emptySpanM="0"
-						emptySpanS="0"
-						columnsXL="2"
-						columnsL="2"
-						columnsM="2"
-						singleContainerFullSize="false">
-							<f:content>
-								<Label text="Nome completo" labelFor="nomecompleto"/>
-								<Input id="nomecompleto" value="{model>/NomeCompleto}" required="true"/>
-								
-								<Label text="Username" labelFor="username"/>
-								<Input id="username" value="{model>/Username}" required="true"/>
-								
-								<Label text="Senha" labelFor="senha"/>
-								<Input id="senha" value="{model>/Senha}" required="true" type="Password"/>
-							</f:content>
-						</f:SimpleForm>
+					<VBox class="sapUiSmallMargin">
+						<Panel headerText="Usuario">
+							<f:SimpleForm id="formUsuario"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								labelSpanXL="4"
+								labelSpanL="4"
+								labelSpanM="4"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="0"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								columnsXL="2"
+								columnsL="2"
+								columnsM="2"
+								singleContainerFullSize="false">
+								<f:content>
+									<core:Title text="{view>/titulo}"/>
+									<Label text="Nome completo" labelFor="nomecompleto"/>
+									<Input id="nomecompleto" value="{model>/NomeCompleto}" required="true"/>
+									
+									<Label text="Username" labelFor="username"/>
+									<Input id="username" value="{model>/Username}" required="true"/>
+									
+									<Label text="Senha" labelFor="senha"/>
+									<Input id="senha" value="{model>/Senha}" required="true" type="Password"/>
+								</f:content>
+							</f:SimpleForm>
+						</Panel> 
 					</VBox>
 				</content>
 				<footer>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button id="salvar" text="Salvar" press="onSalvar"/>
+						<Button icon="sap-icon://save" id="salvar" text="Salvar" press="onSalvar"/>
+						<Button icon="sap-icon://reset" id="voltar" text="Cancelar" press="onVoltar"/>
 					</Toolbar>
 				</footer>
 			</Page>

@@ -53,9 +53,6 @@ sap.ui.define([
 				oModel.read(oParam.sPath,{
 					success: function(oData) {
 						oJSONModel.setData(oData);
-					},
-					error: function(oError) {
-						MessageBox.error(oError.responseText);
 					}
 				});
 			}
@@ -86,44 +83,40 @@ sap.ui.define([
 				}
 		},
 		
+		_getDados: function(){
+			var oJSONModel = this.getOwnerComponent().getModel("model");
+			var oDados = oJSONModel.getData();
+			
+			return oDados;
+		},
+		
 		_createUsuario: function() {
 			var oModel = this.getOwnerComponent().getModel();
-			var oJSONModel = this.getOwnerComponent().getModel("model");
-			var that = this;
 			
-			var oDados = oJSONModel.getData();
+			var that = this;
 
-			oModel.create("/Usuarios", oDados, {
+			oModel.create("/Usuarios", this._getDados(), {
 				success: function() {
 					MessageBox.success("Usuário inserido com sucesso!", {
 						onClose: function(){
 							that._goBack(); 
 						}
 					});
-				},
-				error: function(oError) {
-					MessageBox.error(oError.responseText);
 				}
 			});
 		},
 		
 		_updateUsuario: function() {
 			var oModel = this.getOwnerComponent().getModel();
-			var oJSONModel = this.getOwnerComponent().getModel("model");
 			var that = this;
 			
-			var oDados = oJSONModel.getData();
-			
-			oModel.update(this._sPath, oDados, {
+			oModel.update(this._sPath, this._getDados(), {
 					success: function() {
 					MessageBox.success("Usuário alterado com sucesso!", {
 						onClose: function(){
 							that._goBack();
 						}
 					});
-				},
-				error: function(oError) {
-					MessageBox.error(oError.responseText);
 				}
 			});
 		},
