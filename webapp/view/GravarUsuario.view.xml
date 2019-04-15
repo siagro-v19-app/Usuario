@@ -9,7 +9,7 @@
 			<Page showHeader="false">
 				<content>
 					<VBox class="sapUiSmallMargin">
-						<Panel headerText="Usuario">
+						<Panel headerText="{view>/titulo}">
 							<f:SimpleForm id="formUsuario"
 								editable="true"
 								layout="ResponsiveGridLayout"
@@ -27,7 +27,7 @@
 								columnsM="2"
 								singleContainerFullSize="false">
 								<f:content>
-									<core:Title text="{view>/titulo}"/>
+									<core:Title text=""/>
 									<Label text="Nome completo" labelFor="nomecompleto"/>
 									<Input id="nomecompleto" value="{model>/NomeCompleto}" required="true"/>
 									
@@ -44,8 +44,8 @@
 				<footer>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button icon="sap-icon://save" id="salvar" text="Salvar" press="onSalvar"/>
-						<Button icon="sap-icon://reset" id="voltar" text="Cancelar" press="onVoltar"/>
+						<Button text="Salvar" press="onSalvar" type="Accept"/>
+   						<Button text="Fechar" press="onVoltar" type="Reject"/>
 					</Toolbar>
 				</footer>
 			</Page>

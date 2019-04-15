@@ -6,58 +6,52 @@
 	xmlns:t="sap.ui.table">
 	<App id="app">
 		<pages>
-			<Page showHeader="false">
+			<Page showHeader="false" class="sapUiContentPadding" enableScrolling="false">
 				<content>
-					<VBox class="sapUiSmallMargin">
-						<Panel headerText="Usuario">
-							<t:Table id="tableUsuario"
-								rows="{path: '/Usuarios'}"
-								class="sapUiSizeCondensed"
-								selectionMode="Single"
-								selectionBehavior="Row"
-								enableSelectAll="false"
-								editable="true"
-								visibleRowCountMode="Auto"
-								enableBusyIndicator="true"
-								alternateRowColors="true"
-								enableCustomFilter="false">
-								<t:toolbar>
-									<Toolbar>
-										<Title text="Lista de Usuários"/> 
-									</Toolbar>
-								</t:toolbar>
-								<t:columns>
-									<t:Column filterProperty="NomeCompleto" sortProperty="NomeCompleto">
-										<Label text="Nome"/>
-										<t:template>
-											<Text text="{NomeCompleto}"/>
-										</t:template>
-									</t:Column>
-									<t:Column filterProperty="Username" sortProperty="Username">
-										<Label text="Username"/>
-										<t:template>
-											<Text text="{Username}"/>
-										</t:template>
-									</t:Column>
-								</t:columns>
-								<t:footer>
-									<Toolbar>
-										<Button icon="sap-icon://refresh" press="onRefresh"/>
-										<ToolbarSpacer/>
-										<Button icon="sap-icon://filter"/>
-										<Button icon="sap-icon://clear-filter"/>
-									</Toolbar>
-								</t:footer>
-							</t:Table>
-						</Panel>
-					</VBox>
+					<t:Table id="tableUsuario"
+						rows="{
+							path: '/Usuarios',
+							sorter: {
+								path: 'NomeCompleto'
+							}
+						}"
+						selectionMode="Single"
+						selectionBehavior="Row"
+						class="sapUiSizeCondensed"
+						visibleRowCountMode="Auto"
+						enableBusyIndicator="true"
+						alternateRowColors="true">
+						<t:toolbar>
+							<Toolbar>
+								<Title text="Lista de Usuários"/> 
+								<ToolbarSpacer/>
+								<SearchField placeholder="Pesquisar usuário..." width="30%" search="filtraUsuario"/>
+							</Toolbar>
+						</t:toolbar>
+						<t:columns>
+							<t:Column filterProperty="NomeCompleto" sortProperty="NomeCompleto">
+								<Label text="Nome"/>
+								<t:template>
+									<Text text="{NomeCompleto}"/>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="Username" sortProperty="Username">
+								<Label text="Username"/>
+								<t:template>
+									<Text text="{Username}"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
 				</content>
 				<footer>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button icon="sap-icon://add" text="Incluir novo" press="onIncluir"/>
-						<Button icon="sap-icon://edit" text="Editar" press="onEditar"/>
-						<Button icon="sap-icon://delete" text="Remover" press="onRemover"/>
+						<Button id="incluir" text="Incluir novo" press="onIncluir" type="Emphasized"/>
+						<Button id="editar" text="Editar" press="onEditar"/>
+						<Button id="remover" text="Remover" press="onRemover"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://refresh" press="onRefresh"/>
 					</Toolbar>
 				</footer>
 			</Page>

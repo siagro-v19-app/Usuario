@@ -32,7 +32,7 @@ sap.ui.define([
 			if (this._operacao === "incluir"){
 				
 				oViewModel.setData({
-					titulo: "Inserir Novo Produto"
+					titulo: "Inserir Novo Usuário"
 				});
 			
 				var oNovoUsuario = {
