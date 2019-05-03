@@ -15,7 +15,7 @@ sap.ui.define([
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 		},
 		
-		filtraUsuario        : function(oEvent){
+		filtraUsuario: function(oEvent){
 			var sQuery = oEvent.getParameter("query");
 			var oFilter = new Filter("NomeCompleto", FilterOperator.Contains, sQuery);
 			

@@ -25,7 +25,7 @@
 							<Toolbar>
 								<Title text="Lista de Usuários"/> 
 								<ToolbarSpacer/>
-								<SearchField placeholder="Pesquisar usuário..." width="30%" search="filtraUsuario"/>
+								<SearchField placeholder="Pesquisar nome..." width="30%" search="filtraUsuario"/>
 							</Toolbar>
 						</t:toolbar>
 						<t:columns>
